@@ -1,0 +1,9 @@
+# VS CODE - Configuración del Area de Trabajo
+*.code-workspace
+
+# Imagenes
+*.png
+*.jpg
+
+# Carpeta CSPELL
+.vscode

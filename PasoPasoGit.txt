@@ -1,0 +1,378 @@
+*** MANUAL DE PROCEDIMIENTOS - GIT ***
+
+.-PROCEDIMIENTO PARA CREAR UN REPOSITORIO [GIT INIT]:
+-------------------------------------------------------------
+Se debe definir donde esta ubicada la carpeta central de los archivos,
+luego en esa carpeta se ejecuta el comando:
+git init ↵
+
+
+
+.-PROCEDIMIENTO PARA BORRAR UN ARCHIVO DEL STAGING [GIT RM]:
+-------------------------------------------------------------
+git rm --cached [nombre del archivo]
+
+EJ:
+===
+git rm --cached historia.txt ↵
+
+
+
+.-PROCEDIMIENTO PARA VER EL CONTENIDO DE UN ARCHIVO [CAT]:
+-------------------------------------------------------------
+cat [nombre del archivo]
+
+EJ:
+===
+cat historia.txt ↵
+
+...Muestra por consola el contenido del archivo...
+Esta es la historia de Freddy Vega
+
+Freddy Vega tiene 33 años y nació en Colombia,
+viviendo en todo el mundo.
+
+Hoy hablaremos de su historia.
+...
+
+
+
+.-PROCEDIMIENTO PARA VER LOS CAMBIOS QUE tiene UN ARCHIVO [GIT SHOW]:
+---------------------------------------------------------------------
+git show [nombre del archivo]
+
+EJ:
+===
+git show historia.txt ↵
+
+...Muestra por consola los cambios que ha tenido el archivo...
+commit 2bb5a5ecfcdf3f3468248528177467a104d39455 (HEAD -> main)
+Author: puchenkv <kennathn@yahoo.com>
+Date:   Wed Apr 17 08:01:39 2024 -0500
+
+    Cambio al archivo de historia para reflejar la edad correcta - 17042024
+
+diff --git a/historia.txt b/historia.txt
+index a433545..8be5ed6 100644
+--- a/historia.txt
++++ b/historia.txt
+@@ -1,5 +1,6 @@
+ Esta es la historia de Freddy Vega
+
+-Freddy Vega tiene 32 años y nació en Colombia.
++Freddy Vega tiene 33 años y nació en Colombia,
++viviendo en todo el mundo.
+
+ Hoy hablaremos de su historia.
+\ No newline at end of file
+...
+
+
+
+.-PROCEDIMIENTO PARA VER LOS CAMBIOS (COMMIT) QUE TIENE UN ARCHIVO [GIT LOG]:
+-------------------------------------------------------------------------------
+git log [nombre del archivo] o git log ↵
+
+EJ:
+===
+git log historia.txt ↵
+
+...Muestra por consola commit que tiene el archivo...
+commit 98792b22a3403008f9f57a58696349a99eadef7c (HEAD -> main)
+Author: puchenkv <kennathn@yahoo.com>
+Date:   Wed Apr 17 09:22:07 2024 -0500
+
+    Agregamos el cargo de la persona - 17042024
+
+commit e0ac5a58a2a6859c9b604f5b712efcf7ba8df1eb
+Author: puchenkv <kennathn@yahoo.com>
+Date:   Wed Apr 17 09:20:04 2024 -0500
+
+    Agregamos un cambio a su estatura - 17042024
+
+commit 2bb5a5ecfcdf3f3468248528177467a104d39455
+Author: puchenkv <kennathn@yahoo.com>
+Date:   Wed Apr 17 08:01:39 2024 -0500
+
+    Cambio al archivo de historia para reflejar la edad correcta - 17042024
+
+commit 5fa9de74e4d16740dee8df6ed8e13a42314eaa5f
+Author: puchenkv <kennathn@yahoo.com>
+Date:   Wed Apr 17 07:57:34 2024 -0500
+
+    Este es el primer commit de este archivo - 17042024
+...
+
+
+
+.-PROCEDIMIENTO PARA VER LOS CAMBIOS ENTRE COMMIT QUE TIENE UN ARCHIVO [GIT DIFF]:
+----------------------------------------------------------------------------------
+git diff [id_commit_A] [id_commit_B] / git diff
+
+EJ A:
+=====
+git diff 98792b22a3403008f9f57a58696349a99eadef7c 5fa9de74e4d16740dee8df6ed8e13a42314eaa5f ↵
+
+...Muestra por consola el resultado de la consulta...
+diff --git a/historia.txt b/historia.txt
+index f4a2e45..a433545 100644
+--- a/historia.txt
++++ b/historia.txt
+@@ -1,10 +1,5 @@
+ Esta es la historia de Freddy Vega
+
+-Freddy Vega tiene 33 años y nació en Colombia,
+-viviendo en todo el mundo.
++Freddy Vega tiene 32 años y nació en Colombia.
+
+-Hoy hablaremos de su historia.
+-
+-En camara parece alto pero la verdad no es tan algo.
+-
+-Hoy es el CEO de Plazi.
+\ No newline at end of file
++Hoy hablaremos de su historia.
+\ No newline at end of file
+...
+
+
+EJ B:
+=====
+git diff ↵
+
+...Muestra por consola el resultado de la consulta...
+diff --git a/blogpost.html b/blogpost.html
+index a71737c..1208030 100644
+--- a/blogpost.html
++++ b/blogpost.html
+@@ -7,7 +7,7 @@
+     <link rel="stylesheet" href="/css/estilos.css">
+ </head>
+ <body>
+-    <h1>Aquí vamos hacer un blog spot</h1>
+-    <p>Y este es el párrafo de inicio</p>
++    <h1>Aquí vamos hacer un blog spot.</h1>
++    <p>Y este es el párrafo de inicio.</p>
+ </body>
+ </html>
+\ No newline at end of file
+...
+
+
+
+.-PROCEDIMIENTO PARA RESTAURAR UNA DATA ANTERIOR [GIT RESET]:
+-------------------------------------------------------------
+git log [Nombre del archivo] o git log ↵ (se ve el historico de los commit)
+
+se copia el id_tag ↵
+
+git reset [id_tag] --hard o --soft ↵
+
+git log ↵ (ejecutar este comando para validar donde estamos)
+
+
+EJ:
+===
+1. --hard
+	git reset 2bb5a5ecfcdf3f3468248528177467a104d39455 --hard ↵
+	git log (permite ver los cambios que quedaron en la BD)
+	code historia.txt (permite ver los cambios desde vscode)
+
+2. --soft
+	git reset [id del commit] --soft ↵
+	git reset b26fc8a980ba16d2c67103d253c38631f8604473 --soft + enter
+
+
+
+.-PROCEDIMIENTO PARA VER LOS CAMBIOS DE CADA COMMIT QUE TIENE UN ARCHIVO [GIT LOG --stat]:
+------------------------------------------------------------------------------------------
+git log --stat
+
+EJ:
+===
+git log --stat ↵
+
+...Muestra los cambios especificos que se realizaron en cada archivo (commit)...
+ git log --stat
+commit dcae9ec5a38310794977afaa0d2e4ecff98372da (HEAD -> main)
+Author: puchenkv <kennathn@yahoo.com>
+Date:   Wed Apr 17 17:41:49 2024 -0500
+
+    Cambio de maestria  - 17042024
+
+ historia.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 113b80153839068d3c2760ba400642a7304a9ac1
+Author: puchenkv <kennathn@yahoo.com>
+Date:   Wed Apr 17 17:39:57 2024 -0500
+
+    Cambio de vida - 17.04.2024
+
+ historia.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a1a6ac4525d5bd63dfd99d992e836f7d01e7eaef
+Author: puchenkv <kennathn@yahoo.com>
+Date:   Wed Apr 17 17:35:05 2024 -0500
+
+    Arranco mi proyecto real usando html y css
+
+ blogpost.html   | 13 +++++++++++++
+ css/estilos.css |  6 ++++++
+ 2 files changed, 19 insertions(+)
+
+commit 2bb5a5ecfcdf3f3468248528177467a104d39455
+Author: puchenkv <kennathn@yahoo.com>
+Date:   Wed Apr 17 08:01:39 2024 -0500
+
+    Cambio al archivo de historia para reflejar la edad correcta - 17042024
+
+ historia.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 5fa9de74e4d16740dee8df6ed8e13a42314eaa5f
+Author: puchenkv <kennathn@yahoo.com>
+Date:   Wed Apr 17 07:57:34 2024 -0500
+
+    Este es el primer commit de este archivo - 17042024
+
+ .gitignore   | 8 ++++++++
+ historia.txt | 5 +++++
+ 2 files changed, 13 insertions(+)
+...
+
+
+
+.-PROCEDIMIENTO PARA MOVERSE ENTRE DATA HISTORICA (COMMIT) [GIT CHECKOUT]:
+---------------------------------------------------------------------------
+git log ↵ (para tomar el id de un commit a revisar la historia del archivo)
+
+git checkout [id del commit] + [nombre del archivo] ↵
+(comando que permite volver en el tiempo para ver como estaba el archivo al inicio del proyecto)
+
+git status ↵ (indicara que el archivo fue modificado)
+
+git checkout [nombre de la rama] + [nombre del archivo] ↵
+(vuelve el contenido del archivo al ultimo cambio realizado)
+
+
+EJ:
+===
+
+git log ↵
+
+...Se tomo el primer commit del este proyecto...
+commit 5fa9de74e4d16740dee8df6ed8e13a42314eaa5f
+Author: puchenkv <kennathn@yahoo.com>
+Date:   Wed Apr 17 07:57:34 2024 -0500
+
+    Este es el primer commit de este archivo - 17042024
+...
+
+
+git checkout 5fa9de74e4d16740dee8df6ed8e13a42314eaa5f historia.txt  ↵
+
+...
+$ git checkout 5fa9de74e4d16740dee8df6ed8e13a42314eaa5f historia.txt
+Updated 1 path from 6a498c1
+...
+
+git status ↵
+
+...Los datos del archivo son del primer commit
+$ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   historia.txt
+...
+
+git checkout main historia.txt ↵
+
+...
+$ git checkout main historia.txt
+Updated 1 path from 8381843
+...
+
+
+
+.-PROCEDIMIENTO PARA MOVERSE ENTRE DATA HISTORICA (COMMIT) Y REALIZAR UN CAMBIO PERMANENTE [GIT CHECKOUT]:
+----------------------------------------------------------------------------------------------------------
+git log ↵ (para tomar el id de un commit a revisar la historia del archivo)
+
+git checkout [id del commit] + [nombre del archivo] ↵
+(comando que permite volver en el tiempo para ver como estaba el archivo al inicio del proyecto)
+
+git status ↵ (indicara que el archivo fue modificado)
+
+git checkout [nombre de la rama] + [nombre del archivo] ↵
+(vuelve el contenido del archivo al ultimo cambio realizado)
+
+> realizar la modificacion del archivo
+
+git add . ↵ (respaldo en el steging)
+
+git commit -m "texto" ↵ (hace un respaldo del proyecto con los cambios)
+
+git log ↵ (para ver el ultimo commit)
+
+git log --stat ↵ (para los cambios detallados realizados en cada commit)
+
+EJ:
+===
+
+git log ↵
+
+...Se tomo el primer commit del este proyecto...
+commit 5fa9de74e4d16740dee8df6ed8e13a42314eaa5f
+Author: puchenkv <kennathn@yahoo.com>
+Date:   Wed Apr 17 07:57:34 2024 -0500
+
+    Este es el primer commit de este archivo - 17042024
+...
+
+
+git checkout 5fa9de74e4d16740dee8df6ed8e13a42314eaa5f historia.txt  ↵
+
+...
+$ git checkout 5fa9de74e4d16740dee8df6ed8e13a42314eaa5f historia.txt
+Updated 1 path from 6a498c1
+...
+
+> se realiza cambio en el archivo historia.txt
+
+git add .↵
+git commit -m "Reemplazo de una version por otra de la historia - 17042024" ↵
+
+...
+$ git commit -m "Reemplazo de una version por otra de la historia - 17042024"
+[main f27e283] Reemplazo de una version por otra de la historia - 17042024
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+...
+
+git log --stat ↵
+
+
+
+.-PROCEDIMIENTO PARA CREAR UNA RAMA USANDO EL COMANDO STASH [GUARDAR DATOS DE MANERA TEMPORAL A PERMANENTE]:
+-------------------------------------------------------------------------------------------------------------
+Este procedimiento se ejecuta para guarda los cambios temporales (stash) en una nueva rama de manera permanenete, es decir cuando los cambios realizados ameritan ser salvados.
+
+git stash ↵
+
+git stash list ↵
+
+git stash branch english-version ↵
+
+git branch ↵
+
+git status ↵
+
+git add . ↵
+
+git commit -m "I speak english now" ↵
+
+
+
+
