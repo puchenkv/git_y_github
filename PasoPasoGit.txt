@@ -355,6 +355,34 @@ git log --stat ↵
 
 
 
+.-PROCEDIMIENTO PARA UNIR RAMAS:
+---------------------------------
+Para este procedimiento se trabajo con las ramas MAIN y CABECERA.
+
+git merge [nombre_rama] "mensaje" 
+
+EJ:
+===
+	git checkout master "mensaje" ↵
+
+        git merge cabecera "Unión de ramas" ↵
+
+                id_analista@PORTATILAHP MINGW64 /d/xampp/htdocs/site/hyperblog (cabecera)
+                $ git merge main ↵
+                Updating 9cb545f..19f7895
+                Fast-forward
+                .gitignore      |  1 +
+                README.md       | 34 ++++++++++++++++++++++++++++++++++
+                blogpost.html   | 22 ----------------------
+                css/estilos.css | 20 +++++++++++++++++++-
+                historia.txt    | 10 ++++++++++
+                5 files changed, 64 insertions(+), 23 deletions(-)
+                create mode 100644 README.md
+                delete mode 100644 blogpost.html
+
+
+
+
 .-PROCEDIMIENTO PARA CREAR UNA RAMA USANDO EL COMANDO STASH [GUARDAR DATOS DE MANERA TEMPORAL A PERMANENTE]:
 -------------------------------------------------------------------------------------------------------------
 Este procedimiento se ejecuta para guarda los cambios temporales (stash) en una nueva rama de manera permanenete, es decir cuando los cambios realizados ameritan ser salvados.
@@ -373,6 +401,25 @@ git add . ↵
 
 git commit -m "I speak english now" ↵
 
+
+
+.-PROCEDIMIENTO PARA EJECUTAR UN GIT RESET [HARD]:
+--------------------------------------------------
+	git reset [tag_commit] --hard  o git reset --hard [commit_sha]
+
+EJ:
+===
+	git reset --hard f125183 ↵
+        HEAD is now at f125183 readme mejorado en la rama principal
+
+
+.-FORMATO DE MENSAJE PARA LOS COMMIT:
+-------------------------------------
+	"Texto Relacionado con el trabajo, Día Fecha".
+
+EJ:
+===
+	"Respaldo comandos git, comandos generales, terminado, jueves 22082024"
 
 
 

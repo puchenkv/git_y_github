@@ -230,9 +230,9 @@ __* git blame:__
 >Los argumentos usados para este comando son:
 >__-c [nombre del archivo]:__ este argumento se encarga de mostrar un poco mejor (indentado) la información solicitada.
 >
->__-L <inicio>,<fin> [nombre del archivo]:__ este comando usa los rangos de línea (números enteros) para mostrar por pantalla que analista del proyecto realizo un trabajo especifico.
+>__-L (inicio),(fin) [nombre del archivo]:__ este comando usa los rangos de línea (números enteros) para mostrar por pantalla que analista del proyecto realizo un trabajo especifico.
 >
->__-L <inicio>,<fin> -c [nombre del archivo]:__ este argumento aplica los dos conceptos arriba desarrollados.
+>__-L (inicio),(fin) -c [nombre del archivo]:__ este argumento aplica los dos conceptos arriba desarrollados.
 
 ### :key: PROCEDIMIENTOS
 
@@ -262,11 +262,9 @@ __* Muestra la Ubicación donde están almacenadas las variables:__
 __* Configuración de los Usuarios Globales - También Aplica solo para cambio/actualización del E-Mail:__
 
     git config --global user.email "tu@email.com"
-
     Ej: config --global user.email "team@platzi.com" ↵
 
     git config --global user.name "Tu Nombre"
-
     Ej: git config --global user.name "Freddy Vega" ↵
 
 __* Configuración de los Alias Globales:__
@@ -289,10 +287,9 @@ __* Remendar / Enmendar el ultimo commit:__
     git add [Nombre del Archivo a ser añadido al "Staying Area"]
     git commit --amend
 
-    Ej:
-    git add css/estilos.css ↵
+    Ej: git add css/estilos.css ↵
 
-    git commit --amend ↵
+        git commit --amend ↵
 
 __* Cambio del mensaje del ultimo commit:__
 
@@ -446,7 +443,7 @@ __* Pasos para volver a una version anterior del proyecto [SOFT]:__
 
     Ej: git reset 26f333115c6724daae9cad02516718680d0e51a1 --soft ↵
 
-    o
+        o
 
         git reset --soft 9cb545f ↵
 
@@ -461,18 +458,18 @@ __* Pasos para volver a una version anterior del proyecto [HARD]:__
 
     git reset [tag_commit] --hard  o git reset --hard [commit_sha]
 
-    Ej:
-        1.1 git reset 26f333115c6724daae9cad02516718680d0e51a1 --hard ↵   o   git reset --hard 9cb545f ↵
+    Ej: git reset 26f333115c6724daae9cad02516718680d0e51a1 --hard ↵
 
-        1.2. git reset --hard f125183 ↵
-             HEAD is now at f125183 readme mejorado en la rama principal
+        o
+
+        git reset --hard 9cb545f ↵
 
 __* Borrar un archivo del STAGING AREA:__
 
-        git reset HEAD [hombre_archivo]
+    git reset HEAD [hombre_archivo]
 
-        Ej: git reset HEAD hyperblog_project.code-workspace ↵
-        (Este comando saca un archivo del staging area, el archivo quedara unstage)
+    Ej: git reset HEAD hyperblog_project.code-workspace ↵
+    (Este comando saca un archivo del staging area, el archivo quedara unstage)
 
 __* Creación de Ramas:__
 
@@ -529,57 +526,58 @@ __* Hacer un rebase: reorganiza los cambios de la historia (commits):__
 
 __* Hacer un stash: almacenar los cambios en memoria de manera temporal:__
 
-        git stash
+    git stash
 
-        Ej: git stash ↵
+    Ej: git stash ↵
 
-            Saved working directory and index state WIP on main: 7c444e0  Respaldo numero 9 del proyecto en la noche - 03062024
+    Saved working directory and index state WIP on main: 7c444e0  Respaldo numero 9 del proyecto en la noche - 03062024
 
 __* Listar los cambios temporales (stash): puede haber uno o varios stash:__
 
-        git stash list
+    git stash list
 
-        Ej: git stash list ↵
+    Ej: git stash list ↵
 
-            stash@{0}: On main: primer mensaje
-            stash@{1}: WIP on main: b96805e experimento # 2
-            stash@{2}: WIP on main: b96805e experimento # 2
+        stash@{0}: On main: primer mensaje
+        stash@{1}: WIP on main: b96805e experimento # 2
+        stash@{2}: WIP on main: b96805e experimento # 2
 
 __* Hacer un [Stash POP]:__
-        Recupera y Publica los cambios guardados en el ultimo stash, luego elimina el elemento despues que aparece.
+    Recupera y Publica los cambios guardados en el ultimo stash, luego elimina el elemento despues que aparece.
 
-        git stash pop (para un stash) o git stash pop stash@{ (num_stash) } (para varios stash)
+    git stash pop (para un stash) o git stash pop stash@{ (num_stash) } (para varios stash)
 
-        Ej: git stash pop ↵
+    Ej: git stash pop ↵
 
 __* Hacer un [Stash APPLY]:__
 
-        git stash apply (para un stash) o git stash apply stash@{ (num_stash) } (para varios stash)
+    git stash apply (para un stash) o git stash apply stash@{ (num_stash) } (para varios stash)
 
-        Nota: Retorna los cambios de un stash especifico (de una lista), no elimina el stash, es como un vistazo al mismo.
+    Nota: Retorna los cambios de un stash especifico (de una lista), no elimina el stash, es como un vistazo al mismo.
 
 __* Asignar un mensaje al stash:__
 
-        git stash save "se escribe el mensaje a asignar"
+    git stash save "se escribe el mensaje a asignar"
 
-        Ej: git stash save "primer mensaje" ↵
+    Ej: git stash save "primer mensaje" ↵
 
-            $ git stash save "primer mensaje"
-                Saved working directory and index state On main: primer mensaje
+        $ git stash save "primer mensaje"
+        Saved working directory and index state On main: primer mensaje
 
 __* Eliminación de un stash:__
-        git stash drop (para un stash) o git stash drop stash@{ (num_stash) } (para varios stash)
 
-        Ej: git stash drop ↵
+    git stash drop (para un stash) o git stash drop stash@{ (num_stash) } (para varios stash)
 
-            $ git stash drop
-            Dropped refs/stash@{0} (01dd4fc4e4c0623d9c607ea7768976d2de6d51e3)
+    Ej: git stash drop ↵
+
+        $ git stash drop
+        Dropped refs/stash@{0} (01dd4fc4e4c0623d9c607ea7768976d2de6d51e3)
 
 __* Eliminación de todos los stash:__
 
-        git stash clear (para varios stash)
+    git stash clear (para varios stash)
 
-        Ej: git stash clear ↵
+    Ej: git stash clear ↵
 
 __* Crear una rama usando el comando stash:__
 
@@ -687,15 +685,14 @@ __* Muestra la información por rangos de busqueda numéricos e indentado:__
 __* Como crear un Tag:__
 
     Para llevar un control de versiones del proyecto finalizado o con mejoras, el procedimiento es:
+    1- se copia el has de un commit, Ej: c84152d
+    2- crear el tag, comando git tag -a [nombre_version] -m "mensaje" [numero_tag]
 
-        1- se copia el has de un commit, Ej: c84152d
-        2- crear el tag, comando git tag -a [nombre_version] -m "mensaje" [numero_tag]
-
-        Ej: git tag -a v0.1 -m "mejora del proyecto al cambiar la rama" c84152d ↵
+    Ej: git tag -a v0.1 -m "mejora del proyecto al cambiar la rama" c84152d ↵
 
 __* Listado de Tags:__
 
-        git tag
+    git tag
 
 __* Muestra a que commit esta conectado un Tag:__
 
@@ -718,59 +715,69 @@ __* Como clonar un Repositorio:__
 
         2. SSH: git clone git@github.com:puchenkv/hyperblog.git ↵
 
-### :star:ACRÓNIMOS EN GIT
+### :orange_book: ACRÓNIMOS EN GIT
 
-* Config:
-    -l (list)
++ Config:
 
-* Branch:
-    -a (all)
-    -r (remote)
-    -u (upstream)
-    -d (delete)
-    -m (move)
+        -l (list)
 
-* Blame:
-    -c (?)
-    -L (Line)
++ Branch:
 
-* Commit (confirmaciones):
-    -m (msg) o --message
+        -a (all)
+        -r (remote)
+        -u (upstream)
+        -d (delete)
+        -m (move)
 
-* Clean:
-    -f (force)
-    -d (directories)
++ Blame:
 
-* Grep (Globally Search for Regular Expression and Print Out, herramienta de linux)
-    -n (--line-number)
-    -c (--count)
+        -c (?)
+        -L (Line)
 
-* Log
-    -S (string)
++ Commit (confirmaciones):
 
-* RM
-    -r (recursive)
+        -m (msg) o --message
 
-* Status:
-    -s (short)
++ Clean:
 
-* Secure Hash Algorithm (SHA).
+        -f (force)
+        -d (directories)
 
-* Remote:
-    -v (verbose)
++ Grep (Globally Search for Regular Expression and Print Out, herramienta de linux):
 
-* Tag:
-    -a (add)
-    -d (delete)
+        -n (--line-number)
+        -c (--count)
 
-* Wip (work in progress)
++ Log:
 
-### :star:TIPS EN GIT
+        -S (string)
 
-**Ventana de Comando: Git Bash**
-    Cuando después de ejecutar los comandos [git config --list] o [git log + Nombre_Archivo] y al final de la ventana muestre la palabra "END" se deberá presionar la letra **q** que significa "Quit".
++ RM:
 
-**VIM**
+        -r (recursive)
+
++ Remote:
+
+        -v (verbose)
+
++ Status:
+
+        -s (short)
+
++ Tag:
+
+        -a (add)
+        -d (delete)
+
++ SHA: Secure Hash Algorithm
++ Wip: work in progress
+
+### :bulb:TIPS EN GIT
+
+__* Ventana de Comando: Git Bash:__
+    Cuando después de ejecutar los comandos `git config --list` o `git log + [Nombre_Archivo]` y al final de la ventana muestre la palabra "END" o los ":" se deberá presionar la letra __q__ que significa "__Quit__" para salir de la consulta.
+
+__* VIM:__
 Es un editor de texto (de código abierto, libre y multiplataforma) basado en la línea de comando.
 
 ## :star:NOTAS DE [GITHUB]:star:
@@ -878,12 +885,12 @@ Es un editor de texto (de código abierto, libre y multiplataforma) basado en la
 
 ### :star:TRADUCCIONES DE [PALABRAS]:star:
 
-1.brach: rama.
-2.blame: culpa y/o responsable.
-3.merge: unir, fusionar.
-4.stage: escena.
-5.staging: puesta en escena.
-6.unstage: fuera del escenario.
-7.tracked: rastreado o seguimiento.
-8.tag: etiqueta
-9.untracked: sin rastreo o seguimiento.
+1. brach: rama.
+2. blame: culpa y/o responsable.
+3. merge: unir, fusionar.
+4. stage: escena.
+5. staging: puesta en escena.
+6. unstage: fuera del escenario.
+7. tracked: rastreado o seguimiento.
+8. tag: etiqueta
+9. untracked: sin rastreo o seguimiento.
