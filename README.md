@@ -236,464 +236,487 @@ __* git blame:__
 
 ### :key: PROCEDIMIENTOS
 
-    **Inicio de un Repositorio Local**
-            git init
+---
 
-            Ej: git init ↵
-            Initialized empty Git repository in D:/xampp/htdocs/site/git_comandos/.git/
+__* Inicio de un Repositorio Local:__
 
-    **Información de uso y/o ayuda de un comando**
-            git [COMANDO] --help
+    git init
 
-            Ej: git add --help ↵
+    Ej: git init ↵
+        Initialized empty Git repository in D:/xampp/htdocs/site/git_comandos/.git/
 
-    **Muestra la Configuración de las Variables y sus valores**
-            git config --list o git config -l
+__* Información de uso y/o ayuda de un comando:__
 
-        **Muestra la Ubicación donde están almacenadas las variables**
-            git config --list --show-origin
+    git [Comando] --help
 
-        **Configuración de los Usuarios Globales - También Aplica solo para cambio/actualización del E-Mail**
-            git config --global user.email "tu@email.com"
-            Ej: config --global user.email "team@platzi.com" ↵
+    Ej: git add --help ↵
 
-            git config --global user.name "Tu Nombre"
-            Ej: git config --global user.name "Freddy Vega" ↵
+__* Muestra la Configuración de las Variables y sus valores:__
 
-         **Configuración de los Alias Globales**
-            git config --global alias.[nombre del alias] "[escribir el comando]"
+    git config --list o git config -l
 
-            Ej: git config --global alias.stats "shortlog --sn --all --no-merge" ↵
-                git stats ↵ (Ejecuta el Alias)
+__* Muestra la Ubicación donde están almacenadas las variables:__
 
+    git config --list --show-origin
 
-        **Ejecución de un commit**
-            git commit -m "dejar el mensaje"
+__* Configuración de los Usuarios Globales - También Aplica solo para cambio/actualización del E-Mail:__
 
-        **Ejecución añadir un archivo y hacer de un commit**
-            git commit -am "dejar el mensaje"
+    git config --global user.email "tu@email.com"
 
-        **Remendar / Enmendar el ultimo commit**
-            git add [Nombre del Archivo a ser añadido al "Staying Area"]
-            git commit --amend
+    Ej: config --global user.email "team@platzi.com" ↵
 
-            Ej:
-            git add css/estilos.css ↵
-            git commit --amend ↵
+    git config --global user.name "Tu Nombre"
 
-        **Cambio del mensaje del ultimo commit**
-            git commit --amend -m "escribir el mensaje nuevo" ↵
+    Ej: git config --global user.name "Freddy Vega" ↵
 
-        **Cambio del mensaje del ultimo commit**
-            git commit --amend --no-edit ↵
+__* Configuración de los Alias Globales:__
 
- 
-        **Muestra archivos sin seguimiento**
-            git status -s
+    git config --global alias.[nombre del alias] "[escribir el comando]"
 
+    Ej: git config --global alias.stats "shortlog --sn --all --no-merge" ↵
+        git stats ↵ (Ejecuta el Alias)
 
-        **Muestra los detalles / cambios de un Archivo**
-            git show [nombre_archivo]
-            Ej: git show README.md ↵
+__* Ejecución de un commit:__
 
-        **Mostrar los detalles / cambios de un Commit**
-            git show [id_commit]
-            Ej: git show 26f3331 ↵
+    git commit -m "dejar el mensaje"
 
+__* Ejecución añadir un archivo al staging y hacer de un commit:__
 
-        **Comparar dos Commit**
-            git diff [id_commit_A] [id_commit_B]
-            Ej: git diff db23bc0182ff9e2b61efa49402b2f532b958001d 3ac1e45963461f02c44b96d4bbdf087e0e5b848d ↵
+    git commit -am "dejar el mensaje"
 
+__* Remendar / Enmendar el ultimo commit:__
 
-        **Detalle de un Archivo**
-            git log [nombre_archivo]
-            Ej: git log historia.txt ↵
+    git add [Nombre del Archivo a ser añadido al "Staying Area"]
+    git commit --amend
 
-        **Detalle resumindo de los cambios de un Commit**
-            git log --stat
+    Ej:
+    git add css/estilos.css ↵
 
-        **Listado gráfico de Commits**
-            git log --graph --oneline
+    git commit --amend ↵
 
-        **Resumen de commit por pantalla**
-            git log --oneline
+__* Cambio del mensaje del ultimo commit:__
 
-        **Muestra todos los detalles de los commit**
-            git log --all
+    git commit --amend -m "escribir el mensaje nuevo" ↵
 
-        **Muestra todos los detalles de los commit en forma gráfica**
-            git log --all --graph
+__* Cambio del mensaje del ultimo commit:__
 
-        **Muestra en forma Resumida y Gráfica la historia de un proyecto desde sus inicios**
-            git log --all --graph --decorate --oneline
+    git commit --amend --no-edit ↵
 
-        **Guardar información de un log en txt**
-            git log > [nombre_archivo]
-            Ej: git log > log.txt ↵
+__* Muestra archivos sin seguimiento:__
 
-        **Muestra la información con más detalles de un Commit**
-            git log -g
+    git status -s
 
-        **Detalle de un Archivo**
-            git log [SHA o HASH]
-            Ej: git log 7752b22 ↵
+__* Muestra los detalles / cambios de un Archivo:__
 
+    git show [nombre_archivo]
 
-        **Detalle mas especifico de los cambios de un Commit**
-            git reflog
+    Ej: git show README.md ↵
 
+__* Mostrar los detalles / cambios de un Commit:__
 
-        **Numero limitado de Commit**
-            git lot -#
-            Ej: git lot -2
+    git show [id_commit]
 
-        **Buscar información en la historia de los commits**
-            git log -S [palabra]
-            Ej:
-            git log -S "cabecera" ↵ (Busca cuantas veces se uso la palabra "cabecera")
+    Ej: git show 26f3331 ↵
 
-        **Muestra los commits realizado por los miembros del equipo**
-            git shortlog
+__* Comparar dos Commit:__
 
-        **Muestra ciertos commits realizado por los miembros del equipo**
-            git shortlog -sn
+    git diff [id_commit_A] [id_commit_B]
 
-        **Muestra un listado de todos commits realizado y eliminados**
-            git shortlog -sn --all
+    Ej:
+    git diff db23bc0182ff9e2b61efa49402b2f532b958001d 3ac1e45963461f02c44b96d4bbdf087e0e5b848d ↵
 
-        **Muestra un listado de todos commits realizado, eliminado los merge**
-            git shortlog -sn --all --no-merge
+__* Detalle de un Archivo:__
 
+    git log [nombre_archivo]
 
-        **Cambiar el Nombre de un Archivo**
-            git mv file_from file_to
-            Ej: git mv README.md README ↵
+    Ej: git log historia.txt ↵
 
+__* Detalle resumindo de los cambios de un Commit:__
 
-        **Eliminar un archivo del "Staging Area"**
-            git rm --cached [nombre_archivo]
-            Ej: git rm --cached historia.txt ↵
+    git log --stat
 
+__* Listado gráfico de Commits:__
 
-        **Cambiando de Version (histórico/actual) del Proyecto**
-            - Version Histórica
-            git checkout [id_commit] [nombre_archivo]
-            Ej:  git checkout c84152d README.md ↵
+    git log --graph --oneline
 
-            - Version Actual
-            git checkout [nombre_rama] [nombre_archivo]
-            Ej:  git checkout main README.md ↵
+__* Resumen de commit por pantalla:__
 
-        **Cambiando de Rama**
-            git checkout [nombre_rama]
-            Ej: git checkout main ↵
+    git log --oneline
 
-        **Cambiando de Commit - Sin realizar cambios**
-            git checkout [hash]
-            Ej: git checkout eff544f ↵
+__* Muestra todos los detalles de los commit:__
 
+    git log --all
 
-        **Pasos para volver a una version anterior del proyecto [SOFT]**
-            git reset [tag_commit] --soft  o  git reset --soft [commit_sha]
+__* Muestra todos los detalles de los commit en forma gráfica:__
 
-            Ej: git reset 26f333115c6724daae9cad02516718680d0e51a1 --soft ↵
+    git log --all --graph
 
-                o
+__* Muestra en forma Resumida y Gráfica la historia de un proyecto desde sus inicios:__
 
-                git reset --soft 9cb545f ↵
+    git log --all --graph --decorate --oneline
 
+__* Guardar información de un log en txt:__
 
-        **Pasos para volver a una version anterior del proyecto [HEAD]**
-            git reset --HEAD@{#}
+    git log > [nombre_archivo]
 
-            Nota: ejecutar este comando es como hacer un reset --soft
+    Ej: git log > log.txt ↵
 
-            Ej: git reset HEAD@{4} ↵
+__* Muestra la información con más detalles de un Commit:__
 
+    git log -g
 
-        **Pasos para volver a una version anterior del proyecto [HARD]**
-            git reset [tag_commit] --hard  o git reset --hard [commit_sha]
+__* Detalle de un Archivo:__
 
-            Ej: 1.1 git reset 26f333115c6724daae9cad02516718680d0e51a1 --hard ↵
+    git log [SHA o HASH]
 
-                    o
+    Ej: git log 7752b22 ↵
 
-                    git reset --hard 9cb545f ↵
+__* Detalle mas especifico de los cambios de un Commit:__
 
+    git reflog
 
-                1.2. git reset --hard f125183 ↵
-                     HEAD is now at f125183 readme mejorado en la rama principal
+__* Numero limitado de Commit:__
 
+    git lot -#
 
-        **Borrar un archivo del STAGING AREA**
-            Este comando saca un archivo del staging area, el archivo quedara unstage.
+    Ej: git lot -2 ↵
 
-            git reset HEAD [hombre_archivo]
+__* Buscar información en la historia de los commits:__
 
-            Ej: git reset HEAD hyperblog_project.code-workspace ↵
+    git log -S [palabra]
 
+    Ej: git log -S "cabecera" ↵
+        Este comando busca cuantas veces se uso la palabra "cabecera"
 
+__* Muestra los commits realizado por los miembros del equipo:__
 
-        **Creación de Ramas**
-            git branch [nombre_rama]
-            Ej: git branch header ↵
+    git shortlog
 
-        **Cambio del Nombre de una Rama**
-            git branch -m [nombre_rama_antiguo] [nombre_rama_actual]
+__* Muestra ciertos commits realizado por los miembros del equipo:__
 
-        **Borrando una Rama**
-            git branch -D [nombre_rama]
-            Ej: git branch -D cabecera ↵
+    git shortlog -sn
 
-        **Listado e Historia de las Ramas**
-            git show-branch ↵
+__* Muestra un listado de todos commits realizado y eliminados:__
 
-        **Listado e Historia de las Ramas mas Detallada**
-            git show-branch --all ↵
+    git shortlog -sn --all
 
+__* Muestra un listado de todos commits realizado, eliminado los merge:__
 
-        **Hacer un merge: unir/fusionar dos ramas**
-            git merge [nombre_rama] "mensaje"
+    git shortlog -sn --all --no-merge
 
-            Nota: Se debe estar en master (main), y desde master (main) hacer un merge con cabecera
+__* Cambiar el Nombre de un Archivo:__
 
-            Ej: git checkout master "mensaje" ↵
-                git merge cabecera "Unión de ramas" ↵
+    git mv file_from file_to
 
+    Ej: git mv README.md README ↵
 
-        **Hacer un merge: de un commit (ref) especifico**
-            git merge ref[SHA o HASH]
+__* Eliminar un archivo del "Staging Area":__
 
-            Ej: git merge eff544f ↵
+    git rm --cached [nombre_archivo]
 
-            Nota: se debera aplicar en la rama que se quiere fusionar el commit, antes de aplicarlo lo estudio mas a profundidad.
+    Ej: git rm --cached historia.txt ↵
 
+__* Cambiando de Version (histórico/actual) del Proyecto:__
 
-        **Hacer un rebase: reorganiza los cambios de la historia (commits)**
-            git rebase [nombre_rama]
+    - Version Histórica:
+        git checkout [id_commit] [nombre_archivo]
 
-            Ej: 1. Se debe ejecutar primero en la rama que se quiere fusionar (experimento)
-                git checkout experimento ↵
-                git rebase main ↵
+        Ej:  git checkout c84152d README.md ↵
 
-                2. Luego se debe ejecutar en la rama principal (main)
-                git checkout main ↵
-                git rebase experimento ↵
+    - Version Actual:
+        git checkout [nombre_rama] [nombre_archivo]
 
+        Ej:  git checkout main README.md ↵
 
-        **Hacer un stash: almacenar los cambios en memoria de manera temporal**
-            git stash
+__* Cambiando de Rama:__
 
-            Ej: git stash ↵
-                Saved working directory and index state WIP on main: 7c444e0  Respaldo numero 9 del proyecto en la noche - 03062024
+    git checkout [nombre_rama]
 
+    Ej: git checkout main ↵
 
-        **Listar los cambios temporales (stash): puede haber uno o varios stash**
-            git stash list
+__* Cambiando de Commit - Sin realizar cambios:__
 
-            Ej: git stash list ↵
-                stash@{0}: On main: primer mensaje
-                stash@{1}: WIP on main: b96805e experimento # 2
-                stash@{2}: WIP on main: b96805e experimento # 2
+    git checkout [hash]
 
+    Ej: git checkout eff544f ↵
 
-        **Stash POP**
-            git stash pop (para un stash) o git stash pop stash@{ (num_stash) } (para varios stash)
+__* Pasos para volver a una version anterior del proyecto [SOFT]:__
 
-            Nota: Recupera y Publica los cambios guardados en el ultimo stash, luego elimina el elemento despues que aparece.
+    git reset [tag_commit] --soft  o  git reset --soft [commit_sha]
 
-            Ej: git stash pop ↵
-                On branch main
-                Your branch is up to date with 'origin/main'.
+    Ej: git reset 26f333115c6724daae9cad02516718680d0e51a1 --soft ↵
 
-            Changes not staged for commit:
-            (use "git add <file>..." to update what will be committed)
-            (use "git restore <file>..." to discard changes in working directory)
-                    modified:   historia.txt
+    o
 
-            no changes added to commit (use "git add" and/or "git commit -a")
-            Dropped refs/stash@{0} (698dfb3fd0911edc140b684f414924a8b1c73529)
+        git reset --soft 9cb545f ↵
 
-            -----------------------------
+__* Pasos para volver a una version anterior del proyecto [HEAD]:__
 
-                git stash pop stash@{2} ↵
-                On branch main
-                Your branch is up to date with 'origin/main'.
+    git reset --HEAD@{#}
 
-            Changes not staged for commit:
-            (use "git add <file>..." to update what will be committed)
-            (use "git restore <file>..." to discard changes in working directory)
-                    modified:   historia.txt
+    Ej: git reset HEAD@{4} ↵
+        (Al ejecutar este comando es como hacer un reset --soft)
 
-            no changes added to commit (use "git add" and/or "git commit -a")
-            Dropped stash@{2} (18f6a6d1b083dcdca2a9aa3934f1de8c16271023)
+__* Pasos para volver a una version anterior del proyecto [HARD]:__
 
+    git reset [tag_commit] --hard  o git reset --hard [commit_sha]
 
-        **Stash APPLY**
-            git stash apply (para un stash) o git stash apply stash@{ (num_stash) } (para varios stash)
+    Ej:
+        1.1 git reset 26f333115c6724daae9cad02516718680d0e51a1 --hard ↵   o   git reset --hard 9cb545f ↵
 
-            Nota: Retorna los cambios de un stash especifico (de una lista), no elimina el stash, es como un vistazo al mismo.
+        1.2. git reset --hard f125183 ↵
+             HEAD is now at f125183 readme mejorado en la rama principal
 
+__* Borrar un archivo del STAGING AREA:__
 
-        **Asignar un mensaje al stash**
-            git stash save "se escribe el mensaje a asignar"
+        git reset HEAD [hombre_archivo]
 
-            Ej: git stash save "primer mensaje" ↵
+        Ej: git reset HEAD hyperblog_project.code-workspace ↵
+        (Este comando saca un archivo del staging area, el archivo quedara unstage)
 
-                $ git stash save "primer mensaje"
+__* Creación de Ramas:__
+
+    git branch [nombre_rama]
+
+    Ej: git branch header ↵
+
+__* Cambio del Nombre de una Rama:__
+
+    git branch -m [nombre_rama_antiguo] [nombre_rama_actual]
+
+__* Borrando una Rama:__
+
+    git branch -D [nombre_rama]
+
+    Ej: git branch -D cabecera ↵
+
+__* Listado e Historia de las Ramas:__
+
+    git show-branch ↵
+
+__* Listado e Historia de las Ramas mas Detallada:__
+
+    git show-branch --all ↵
+
+__* Hacer un merge: unir/fusionar dos ramas:__
+    Para ejecutar este comando, se debe estar en master (main), y desde master (main) hacer un merge con cabecera.
+
+    git merge [nombre_rama] "mensaje"
+
+    Ej: git checkout master "mensaje" ↵
+
+        git merge cabecera "Unión de ramas" ↵
+
+__* Hacer un merge: de un commit (ref) especifico:__
+    Para ejecutar este comando, se debera aplicar en la rama que se quiere fusionar el commit, antes de aplicarlo lo estudio mas a profundidad.
+
+    git merge ref[SHA o HASH]
+
+    Ej: git merge eff544f ↵
+
+__* Hacer un rebase: reorganiza los cambios de la historia (commits):__
+
+    git rebase [nombre_rama]
+
+    Ej:
+    1. Se debe ejecutar primero en la rama que se quiere fusionar (experimento)
+        git checkout experimento ↵
+        git rebase main ↵
+
+    2. Luego se debe ejecutar en la rama principal (main)
+        git checkout main ↵
+        git rebase experimento ↵
+
+__* Hacer un stash: almacenar los cambios en memoria de manera temporal:__
+
+        git stash
+
+        Ej: git stash ↵
+
+            Saved working directory and index state WIP on main: 7c444e0  Respaldo numero 9 del proyecto en la noche - 03062024
+
+__* Listar los cambios temporales (stash): puede haber uno o varios stash:__
+
+        git stash list
+
+        Ej: git stash list ↵
+
+            stash@{0}: On main: primer mensaje
+            stash@{1}: WIP on main: b96805e experimento # 2
+            stash@{2}: WIP on main: b96805e experimento # 2
+
+__* Hacer un [Stash POP]:__
+        Recupera y Publica los cambios guardados en el ultimo stash, luego elimina el elemento despues que aparece.
+
+        git stash pop (para un stash) o git stash pop stash@{ (num_stash) } (para varios stash)
+
+        Ej: git stash pop ↵
+
+__* Hacer un [Stash APPLY]:__
+
+        git stash apply (para un stash) o git stash apply stash@{ (num_stash) } (para varios stash)
+
+        Nota: Retorna los cambios de un stash especifico (de una lista), no elimina el stash, es como un vistazo al mismo.
+
+__* Asignar un mensaje al stash:__
+
+        git stash save "se escribe el mensaje a asignar"
+
+        Ej: git stash save "primer mensaje" ↵
+
+            $ git stash save "primer mensaje"
                 Saved working directory and index state On main: primer mensaje
 
+__* Eliminación de un stash:__
+        git stash drop (para un stash) o git stash drop stash@{ (num_stash) } (para varios stash)
 
-        **Eliminación de un stash**
-            git stash drop (para un stash) o git stash drop stash@{ (num_stash) } (para varios stash)
-
-            Ej: git stash drop ↵
+        Ej: git stash drop ↵
 
             $ git stash drop
             Dropped refs/stash@{0} (01dd4fc4e4c0623d9c607ea7768976d2de6d51e3)
 
+__* Eliminación de todos los stash:__
 
-        **Eliminación de todos los stash**
-            git stash clear (para varios stash)
+        git stash clear (para varios stash)
 
-            Ej: git stash clear ↵
+        Ej: git stash clear ↵
 
+__* Crear una rama usando el comando stash:__
 
-        **Crear una rama usando el comando stash**
-            git stash branch [nombre_de_la_rama]
+    git stash branch [nombre_de_la_rama]
 
-            Ej: git stash branch english-version ↵
+    Ej: git stash branch english-version ↵
 
+__* Revisa e Identifica los archivos no tienen seguimiento en Git:__
 
-        **Revisa e Identifica los archivos no tienen seguimiento en Git**
-            git clean --dry-run
+    git clean --dry-run
 
-            Ej:
-            git clean --dry-run ↵
-            Would remove historia - copia (2).txt
-            Would remove historia - copia (3).txt
-            Would remove historia - copia (4).txt
-            Would remove historia - copia.txt
+    Ej:
+        git clean --dry-run ↵
+        Would remove historia - copia (2).txt
+        Would remove historia - copia (3).txt
+        Would remove historia - copia (4).txt
+        Would remove historia - copia.txt
 
-        **Elimina solo los archivos no tienen seguimiento en Git**
-            git clean -f
+__* Elimina solo los archivos no tienen seguimiento en Git:__
 
-            Ej:
-            git clean -f ↵
-            Removing blogpost - copia (2).html
-            Removing blogpost - copia.html
-            Removing historia - copia (2).txt
-            Removing historia - copia (3).txt
-            Removing historia - copia (4).txt
-            Removing historia - copia (5).txt
-            Removing historia - copia (6).txt
-            Removing historia - copia (7).txt
-            Removing historia - copia.txt
+    git clean -f
 
-        **Elimina los archivos y carpeta no tienen seguimiento en Git**
-            git clean -f -d
+    Ej:
+        git clean -f ↵
+        Removing blogpost - copia (2).html
+        Removing blogpost - copia.html
+        Removing historia - copia (2).txt
+        Removing historia - copia (3).txt
+        Removing historia - copia (4).txt
+        Removing historia - copia (5).txt
+        Removing historia - copia (6).txt
+        Removing historia - copia (7).txt
+        Removing historia - copia.txt
 
-            Ej:
-            git clean -f -d ↵
-            Removing css - copia/
+ __* Elimina los archivos y carpeta no tienen seguimiento en Git:__
 
+    git clean -f -d
 
+    Ej:
+        git clean -f -d ↵
+        Removing css - copia/
 
-        **Ejecutar el comando: cherry-pick**
-            git cherry-pick
+__* Ejecutar el comando: cherry-pick:__
 
-            Ej:
-            git log --oneline ↵   < Se ubica el commitsha
-            git cherry-pick dca2a24 ↵
+    git cherry-pick
 
-        **Procedimiento para detener la ejecucion del comando: cherry-pick**
-            git cherry-pick -- abort
+    Ej:
+        git log --oneline ↵   < Se ubica el commitsha
 
-            Ej:
-            git cherry-pick -- abort ↵
+        git cherry-pick dca2a24 ↵
 
+__* Procedimiento para detener la ejecucion del comando: cherry-pick:__
 
+    git cherry-pick -- abort
 
-        **Busqueda de Archivos, usando el comando: grep**
-            git grep [palabra]
+    Ej: git cherry-pick -- abort ↵
 
-            Ej:
-            git grep color ↵
+__* Busqueda de Archivos, usando el comando: grep:__
 
-        **Busqueda de Archivos e Indica su ubicación, usando el comando: grep**
-            git grep -n [palabra]
+    git grep [palabra]
 
-            Ej:
-            git grep -n platzi ↵
+    Ej: git grep color ↵
 
-        **Busqueda de Archivos con Resumen Data, usando el comando: grep**
-            git grep -c [palabra / codigo]
+__* Busqueda de Archivos e Indica su ubicación, usando el comando: grep:__
 
-           Ej:
-            1. Palabra
-            git grep -c platzi ↵
+    git grep -n [palabra]
 
-            2. Codigo
-            git grep -c "<p>" ↵
+    Ej: git grep -n platzi ↵
 
+__* Busqueda de Archivos con Resumen Data, usando el comando: grep:__
 
+    git grep -c [palabra / codigo]
 
-        **Ejecutar el comando: blame**
-            git blame [nombre del archivo]
+    Ej:
+        1. Palabra
+        git grep -c platzi ↵
 
-            Ej:
-            git blame blogpost.html ↵
+        2. Codigo
+        git grep -c "<p>" ↵
 
-        **Muestra la información indentada**
-            git blame -c [nombre del archivo]
+__* Ejecutar el comando: blame:__
 
-            Ej:
-            git blame -c blogpost.html ↵
+    git blame [nombre del archivo]
 
-        **Muestra la información por rangos de busqueda numéricos**
-            git blame -L <inicio>,<fin> [nombre del archivo]
+    Ej: git blame blogpost.html ↵
 
-            Ej:
-            git blame -L 10,50 blogpost.html ↵
+__* Muestra la información indentada:__
 
-        **Muestra la información por rangos de busqueda numéricos e indentado**
-            git blame -L <inicio>,<fin> -c [nombre del archivo]
+    git blame -c [nombre del archivo]
 
-            Ej:
-            git blame -L 10,50 -c css/estilos.css ↵
+    Ej: git blame -c blogpost.html ↵
 
+__* Muestra la información por rangos de busqueda numéricos:__
 
+    git blame -L <inicio>,<fin> [nombre del archivo]
 
-        **Como crear un Tag**
-            Para llevar un control de versiones del proyecto finalizado o con mejoras, el procedimiento es:
-                1- se copia el has de un commit, Ej: c84152d
-                2- crear el tag, comando git tag -a [nombre_version] -m "mensaje" [numero_tag]
+    Ej: git blame -L 10,50 blogpost.html ↵
 
-                Ej: git tag -a v0.1 -m "mejora del proyecto al cambiar la rama" c84152d ↵
+__* Muestra la información por rangos de busqueda numéricos e indentado:__
 
-        **Listado de Tags**
-            git tag
+    git blame -L <inicio>,<fin> -c [nombre del archivo]
 
-        **Muestra a que commit esta conectado un Tag**
-            git show-ref --tags
+    Ej: git blame -L 10,50 -c css/estilos.css ↵
 
-        **Eliminar un Tag (Local)**
-            git tag -d [nombre_tag]
+__* Como crear un Tag:__
 
-            Ej: git tag -d dormido ↵
+    Para llevar un control de versiones del proyecto finalizado o con mejoras, el procedimiento es:
 
+        1- se copia el has de un commit, Ej: c84152d
+        2- crear el tag, comando git tag -a [nombre_version] -m "mensaje" [numero_tag]
 
+        Ej: git tag -a v0.1 -m "mejora del proyecto al cambiar la rama" c84152d ↵
 
-        **Como clonar un Repositorio**
-            git clone [nombre_ruta_URL] [HTTPS/SSH]
+__* Listado de Tags:__
 
-            El proyecto deberá estar almacenado en la carpeta SITE.
+        git tag
 
-            Ej:
-              1. HTTPS: git clone https://github.com/freddier/hyperblog.git ↵
+__* Muestra a que commit esta conectado un Tag:__
 
-              2. SSH: git clone git@github.com:puchenkv/hyperblog.git ↵
+    git show-ref --tags
+
+__* Eliminar un Tag (Local):__
+
+    git tag -d [nombre_tag]
+
+    Ej: git tag -d dormido ↵
+
+__* Como clonar un Repositorio:__
+
+    git clone [nombre_ruta_URL] [HTTPS/SSH]
+
+    El proyecto deberá estar almacenado en la carpeta SITE, mara mi caso en particular.
+
+    Ej:
+        1. HTTPS: git clone https://github.com/freddier/hyperblog.git ↵
+
+        2. SSH: git clone git@github.com:puchenkv/hyperblog.git ↵
 
 ### :star:ACRÓNIMOS EN GIT
 
