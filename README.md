@@ -784,104 +784,111 @@ Es un editor de texto (de código abierto, libre y multiplataforma) basado en la
 
 ### :key:PROCEDIMIENTOS
 
-    **GitHub (Definición):**
-        Software que se usa para colaborar con otros programadores, usa una interfaz web, almacenar y publicar proyectos, historial de cambios y manejo de versiones. Es la red social del codigo.
+__* GitHub (Definición):__
+    Software que se usa para colaborar con otros programadores, usa una interfaz web, almacenar y publicar proyectos, historial de cambios y manejo de versiones. Es la red social del codigo.
 
-    **Crear un nuevo repositorio:**
-        establece la conexión con el proyecto, solo debe ejecutarse una sola vez
+__* Crear un nuevo repositorio:__
+    Establece la conexión con el proyecto, solo debe ejecutarse una sola vez.
 
-        git remote add [repositorio_remoto] [ruta: https o ssh]
-        Ej:
-            1. SSH
-            git remote add origin git@github.com:puchenkv/tutorial_git_github.git ↵
+    git remote add [repositorio_remoto] [ruta: https o ssh]
 
-            2. HTTP
-            git remote add https://github.com/freddier/hyperblog.git ↵
+    Ej:
+        1. SSH
+        git remote add origin git@github.com:puchenkv/tutorial_git_github.git ↵
 
+        2. HTTP
+        git remote add https://github.com/freddier/hyperblog.git ↵
 
+__* Lista de repositorios online rastreados:__
 
-    **Lista de repositorios online rastreados:**
-        git remote
+    git remote
 
-        Ej: git remote ↵
-            origin
+    Ej: git remote ↵
+        origin
 
+__* Lista Detallada de repositorios online rastreados:__
 
-    **Lista Detallada de repositorios online rastreados:**
-        git remote -v
+    git remote -v
 
-        Ej: git remote -v ↵
-            origin  git@github.com:puchenkv/tutorial_git_github.git (fetch)
-            origin  git@github.com:puchenkv/tutorial_git_github.git (push)
+    Ej: git remote -v ↵
+        origin  git@github.com:puchenkv/tutorial_git_github.git (fetch)
+        origin  git@github.com:puchenkv/tutorial_git_github.git (push)
 
+__* Cambiar la URL de conexión:__
 
-    **Cambiar la URL de conexión:**
-        git remote set-url [repositorio_remoto] [URL]
+    git remote set-url [repositorio_remoto] [URL]
 
-        Ej: git remote set-url origin git@github.com:puchenkv/tutorial_git_github.git ↵
+    Ej: git remote set-url origin git@github.com:puchenkv/tutorial_git_github.git ↵
 
+__* Procedimiento para actualizar el proyecto de la nube a la bd local de control de versiones:__
 
-    **Procedimiento para actualizar el proyecto de la nube a la bd local de control de versiones:**
-        git pull [repositorio_remoto] [repositorio_local]
+    git pull [repositorio_remoto] [repositorio_local]
 
-        Ej: git pull origin main ↵
+    Ej: git pull origin main ↵
 
+__* Integración de Ramas (merge) tanto local como el servidor:__
+    Este comando se ejecuta cuando hay documentos en la nube que no se encuentran en local, es decir, cuando git te muestra el siguiente error: "fatal: refusing to merge unrelated histories".
 
-    **Integración de Ramas (merge) tanto local como el servidor:**
-        Este comando se ejecuta cuando hay documentos en la nube que no se encuentran en local, es decir, cuando git te muestra el siguiente error: "fatal: refusing to merge unrelated histories"
+    git pull [repositorio_remoto] [repositorio_local] --allow-unrelated-histories
 
-        git pull [repositorio_remoto] [repositorio_local] --allow-unrelated-histories
+    Ej: git pull origin main --allow-unrelated-histories ↵
 
-        Ej: git pull origin main --allow-unrelated-histories ↵
+__* Subir contenido al repositorio en la nube:__
 
+    git push -u [repositorio_remoto] [repositorio_local]
 
-    **Subir contenido al repositorio en la nube:**
-        git push -u [repositorio_remoto] [repositorio_local]
+    Ej: git push -u origin main ↵
 
-        Ej: git push -u origin main ↵
+    Nota: la rama local se vincula con la rama remota automáticamente.... -u: upstream (flag)
 
-        Nota: la rama local se vincula con la rama remota automáticamente.... -u: upstream (flag)
+__* Como Hacer un Tag a la Nube (github):__
+    Para tener un histórico de control de versiones.
 
+    git tag [Titulo_colocar_de_la_version] -m "mensaje"
 
-    *Como Hacer un Tag a la Nube (github):
-        Para tener un histórico de control de versiones.
-        git tag [Titulo_colocar_de_la_version] -m "mensaje"
+    Ej: git tag version1.0 -m "mensaje version 1.0" ↵
 
-        Ej: git tag version1.0 -m "mensaje version 1.0" ↵
+__* Subir un Tag a la Nube (github):__
 
-    **Subir un Tag a la Nube (github):**
-        git push [repositorio_remoto] [comando_git]
+    git push [repositorio_remoto] [comando_git]
 
-        Ej: git push origin --tags ↵
+    Ej: git push origin --tags ↵
 
-    **Eliminar un Tag de la nube:**
-        git push [repositorio_remoto] :refs/tags/[nombre_tag]
+__* Eliminar un Tag de la nube:__
 
-        Ej: git push origin :refs/tags/dormido ↵
+    git push [repositorio_remoto] :refs/tags/[nombre_tag]
+
+    Ej: git push origin :refs/tags/dormido ↵
 
 ### :key: CONFIGURACIONES
 
-==**LLAVES SSH - CONFIGURACIÓN LOCAL EN EL EQUIPO**==
+==__LLAVES SSH - CONFIGURACIÓN LOCAL EN EL EQUIPO__==
 
-    - PROCEDIMIENTO PARA CREAR LA LLAVE:
++ PROCEDIMIENTO PARA CREAR LA LLAVE:
+
         ssh-keygen -t rsa -b 4096 -C "correo del analista"
 
-    - PROCEDIMIENTO PARA REVISAR QUE EL SERVIDOR SSH ESTE ENCENDIDO:
++ PROCEDIMIENTO PARA REVISAR QUE EL SERVIDOR SSH ESTE ENCENDIDO:
+
         eval $(ssh-agent -s) ↵
 
-    - PROCEDIMIENTO PARA AGREGAR LA LLAVE AL SERVIDOR LOCAL:
++ PROCEDIMIENTO PARA AGREGAR LA LLAVE AL SERVIDOR LOCAL:
+
         ssh-add ~/.ssh/id_rsa ↵ (2 enter)
 
-==**PROCEDIMIENTO DE REVISION DE LA CONFIGURACIÓN DE GIT EN EL EQUIPO LOCAL**==
-        git config -l ↵
+==__PROCEDIMIENTO DE REVISION DE LA CONFIGURACIÓN DE GIT EN EL EQUIPO LOCAL__==
 
-==**LLAVES SSH - CONFIGURACIÓN EN LA NUBE (GITHUB)**==
-        git remote set-url origin url-ssh-del-repositorio-en-github
+    git config -l ↵
 
-==**COMO CREAR UN ALIAS (SE GENERAN LOCALMENTE):**==
-        alias [nombre_alias]=[formato_codigo]
+==__LLAVES SSH - CONFIGURACIÓN EN LA NUBE (GITHUB)__==
 
-        Ej: alias arbolito=git log --all --graph --decorate --oneline ↵
+    git remote set-url origin url-ssh-del-repositorio-en-github
+
+==__COMO CREAR UN ALIAS (SE GENERAN LOCALMENTE):__==
+
+    alias [nombre_alias]=[formato_codigo]
+
+    Ej: alias arbolito=git log --all --graph --decorate --oneline ↵
 
 ### :star:TRADUCCIONES DE [PALABRAS]:star:
 
@@ -891,6 +898,7 @@ Es un editor de texto (de código abierto, libre y multiplataforma) basado en la
 4. stage: escena.
 5. staging: puesta en escena.
 6. unstage: fuera del escenario.
-7. tracked: rastreado o seguimiento.
-8. tag: etiqueta
-9. untracked: sin rastreo o seguimiento.
+7. upstream: subiendo o subir.
+8. tracked: rastreado o seguimiento.
+9. tag: etiqueta
+10. untracked: sin rastreo o seguimiento.
