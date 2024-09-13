@@ -1,39 +1,21 @@
-*** MANUAL DE PROCEDIMIENTOS - GIT ***
-
-.-PROCEDIMIENTO PARA CREAR UN REPOSITORIO [GIT INIT]:
--------------------------------------------------------------
-Se debe definir donde esta ubicada la carpeta central de los archivos,
-luego en esa carpeta se ejecuta el comando:
-git init ↵
-
-
-
-.-PROCEDIMIENTO PARA BORRAR UN ARCHIVO DEL STAGING [GIT RM]:
--------------------------------------------------------------
-git rm --cached [nombre del archivo]
-
-EJ:
-===
-git rm --cached historia.txt ↵
-
-
+*** MANUAL DE PROCEDIMIENTOS - GIT / LINUX ***
 
 .-PROCEDIMIENTO PARA VER EL CONTENIDO DE UN ARCHIVO [CAT]:
 -------------------------------------------------------------
 cat [nombre del archivo]
 
-EJ:
+EJ: cat historia.txt ↵
 ===
-cat historia.txt ↵
 
 ...Muestra por consola el contenido del archivo...
+
 Esta es la historia de Freddy Vega
 
 Freddy Vega tiene 33 años y nació en Colombia,
 viviendo en todo el mundo.
 
 Hoy hablaremos de su historia.
-...
+..................................................
 
 
 
@@ -65,7 +47,7 @@ index a433545..8be5ed6 100644
 
  Hoy hablaremos de su historia.
 \ No newline at end of file
-...
+...................................................
 
 
 
@@ -73,9 +55,8 @@ index a433545..8be5ed6 100644
 -------------------------------------------------------------------------------
 git log [nombre del archivo] o git log ↵
 
-EJ:
+EJ: git log historia.txt ↵
 ===
-git log historia.txt ↵
 
 ...Muestra por consola commit que tiene el archivo...
 commit 98792b22a3403008f9f57a58696349a99eadef7c (HEAD -> main)
@@ -101,7 +82,7 @@ Author: puchenkv <kennathn@yahoo.com>
 Date:   Wed Apr 17 07:57:34 2024 -0500
 
     Este es el primer commit de este archivo - 17042024
-...
+...................................................
 
 
 
@@ -133,7 +114,7 @@ index f4a2e45..a433545 100644
 \ No newline at end of file
 +Hoy hablaremos de su historia.
 \ No newline at end of file
-...
+..................................................
 
 
 EJ B:
@@ -156,7 +137,7 @@ index a71737c..1208030 100644
  </body>
  </html>
 \ No newline at end of file
-...
+....................................................
 
 
 
@@ -164,7 +145,7 @@ index a71737c..1208030 100644
 -------------------------------------------------------------
 git log [Nombre del archivo] o git log ↵ (se ve el historico de los commit)
 
-se copia el id_tag ↵
+se copia el id_tag
 
 git reset [id_tag] --hard o --soft ↵
 
@@ -240,7 +221,7 @@ Date:   Wed Apr 17 07:57:34 2024 -0500
  .gitignore   | 8 ++++++++
  historia.txt | 5 +++++
  2 files changed, 13 insertions(+)
-...
+.............................
 
 
 
@@ -286,7 +267,7 @@ On branch main
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
         modified:   historia.txt
-...
+...............................................
 
 git checkout main historia.txt ↵
 
@@ -342,7 +323,7 @@ Updated 1 path from 6a498c1
 
 > se realiza cambio en el archivo historia.txt
 
-git add .↵
+git add . ↵
 git commit -m "Reemplazo de una version por otra de la historia - 17042024" ↵
 
 ...
@@ -359,7 +340,7 @@ git log --stat ↵
 ---------------------------------
 Para este procedimiento se trabajo con las ramas MAIN y CABECERA.
 
-git merge [nombre_rama] "mensaje" 
+git merge [nombre_rama] "mensaje"
 
 EJ:
 ===
@@ -415,7 +396,7 @@ EJ:
 
 .-FORMATO DE MENSAJE PARA LOS COMMIT:
 -------------------------------------
-	"Texto Relacionado con el trabajo, Día Fecha".
+	"Texto relacionado con el trabajo, Día Fecha".
 
 EJ:
 ===

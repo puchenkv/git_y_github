@@ -118,12 +118,13 @@ __* git shortlog:__
 >__-sn --all --no-merge:__ muestra un listado de todos los commit realizados, eliminando los merge.
 
 __* git rm:__
-    El comando rm (remove) borra los archivos del "staging area", sin eliminar su historial del sistema de versiones.
+    El comando rm (remove) borra los archivos del "staging area", sin eliminar su historial del sistema de versiones. Para recuperar el archivo eliminado (viajar en el tiempo), necesitamos retroceder en la historia del proyecto, recuperar el último commit y obtener la última confirmación antes de la eliminación del archivo.
+    Hay que tomar en cuenta que git rm no puede usarse sin evaluarlo antes. Se deberá usar uno de los flags siguientes para indicarle a Git cómo eliminar los archivos que ya no necesitamos en la última versión del proyecto.
 
 >Los argumentos usados para este comando son:
->__--cached:__ elimina un archivo del "staging area" o "memoria ram", este procedimiento se usa en caso de un error de un archivo que no sea necesario. El archivo sigue existiendo en físico en la carpeta del proyecto
+>__--cached:__ elimina un archivo del "staging area" o "memoria ram", este procedimiento se usa en caso de un error de un archivo que no sea necesario. El archivo sigue existiendo en físico (disco duro) en la carpeta del proyecto. Deja de hacer seguimiento (trackear) al historial de cambios de estos archivos, por lo que quedan en estado sin seguimiento (untracked).
 >
->__--force:__ elimina todos los archivos del proyecto tanto de la carpeta de git y del disco duro
+>__--force:__ elimina todos los archivos del proyecto tanto de la carpeta de git y del disco duro. Git siempre guarda todo, por lo que podemos acceder al registro de la existencia de los archivos, de modo que se pueda recuperar los si es necesario (pero debemos usar comandos más avanzados).
 >
 >__-r:__ permite la eliminación recursiva cuando se proporciona un nombre de directorio principal.
 
@@ -132,7 +133,7 @@ __* git checkout:__
     Este comando tambien acepta y usa un parámetro de referecia (ref), donde se puede mover a un commit usando la referencia (ref) sin realizar cambios (solo ver la información).
 
 __* git reset:__
-    Este comando permite volver a una version anterior del proyecto (al pasado), sin posibilidad de regresar a la información actual.
+    Este comando permite volver a una version anterior del proyecto (al pasado), sin posibilidad de regresar a la información actual, ya que la historia anterior se borra y se crea una nueva (sobreescribe) historia.
     Tambien es utilizado para deshacer las cosas, cuando se ejecuta este comando trae la posición (head / index) antes de que se presentará un problema en el código usando la referencia (ref).
 
 >Los argumentos usados para este comando son:
@@ -142,9 +143,9 @@ __* git reset:__
 >
 >__--hard:__ borra toda la información ubicada en el "staging area" y del "directorio de trabajo", sin poder volver atrás, es el comando mas utilizado. Elimina todos los cambios y vuelve alineados con "HEAD".
 >
->__--HEAD:__ permite sacar los archivo del listado que se ubica en el "staging area", y asi esos archivo sean incluidos en el proximo commit.
+>__--HEAD:__ permite sacar los archivo del listado que se ubica en el "staging area", y asi esos archivo sean incluidos en el proximo commit.  Esto impide que los últimos cambios en estos archivos se envíen al último commit
 >
->__Nota:__ este comando es una mala practica, solo se recomienda su uso como un ultimo recurso. La fuente de las referencias son el: Head / Hash.
+>__Nota:__ este comando es una mala practica, solo se recomienda su uso como un ultimo recurso, es decir, en caso de emergencia. La fuente de las referencias son el: Head / Hash.
 
 __* git reflog:__
     Es un método más rápido para mostrar commit y/o conseguir commit que se han perdido o borrado. Git suele guardar un silencioso registro de donde está HEAD en cada momento en el repositorio local. Cada vez que confirmas cambios (commit) o cambias de rama el registro de reflog es actualizado. Este comando es muy usado en casos donde se necesite reescribir la historia.
@@ -230,9 +231,9 @@ __* git blame:__
 >Los argumentos usados para este comando son:
 >__-c [nombre del archivo]:__ este argumento se encarga de mostrar un poco mejor (indentado) la información solicitada.
 >
->__-L (inicio),(fin) [nombre del archivo]:__ este comando usa los rangos de línea (números enteros) para mostrar por pantalla que analista del proyecto realizo un trabajo especifico.
+>__-L (linea_inicio),(linea_fin) [nombre del archivo]:__ este comando usa los rangos de línea (números enteros) para mostrar por pantalla que analista del proyecto realizo un trabajo especifico.
 >
->__-L (inicio),(fin) -c [nombre del archivo]:__ este argumento aplica los dos conceptos arriba desarrollados.
+>__-L (linea_inicio),(linea_fin) -c [nombre del archivo]:__ este argumento aplica los dos conceptos arriba desarrollados.
 
 ### :key: PROCEDIMIENTOS
 
@@ -307,7 +308,7 @@ __* Muestra los detalles / cambios de un Archivo:__
 
     git show [nombre_archivo]
 
-    Ej: git show README.md ↵
+    Ej: git show historia.txt ↵
 
 __* Mostrar los detalles / cambios de un Commit:__
 
@@ -672,15 +673,15 @@ __* Muestra la información indentada:__
 
 __* Muestra la información por rangos de busqueda numéricos:__
 
-    git blame -L <inicio>,<fin> [nombre del archivo]
+    git blame -L <linea_inicio>,<linea_fin> [nombre del archivo]
 
     Ej: git blame -L 10,50 blogpost.html ↵
 
 __* Muestra la información por rangos de busqueda numéricos e indentado:__
 
-    git blame -L <inicio>,<fin> -c [nombre del archivo]
+    git blame -L <linea_inicio>,<linea_fin> -c [nombre del archivo]
 
-    Ej: git blame -L 10,50 -c css/estilos.css ↵
+    Ej: git blame -L 35,53 -c css/estilos.css ↵
 
 __* Como crear un Tag:__
 
