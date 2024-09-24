@@ -25,39 +25,44 @@ h3::before{
     counter-increment: subsection;
     content: counter(section) "." counter(subsection) " ";
 }
-/*fin*/
+/*fin del codigo del indice*/
 
 .caja-contenido-p{
     text-indent: 58px;
 }
 
 .contenedor {
-    margin: 50px auto;
-    width: 800px;
-    padding: 15px;
+    margin: 20px auto;
+    width: 600px;
+    /*padding: 15px;*/
 }
 
 .caja {
-    width: 550px;
+    width: 560px;
     margin: auto;
 }
 
 #caja-titulo{
     width: 350px;
-    height: 80px;
+    height: 88px;
     position: relative;
     top: 30px;
-    border: 3px #eb7414 solid;
+    border: 3px #89CEE6 solid;
     border-radius: 18px;
     background-color: white;
     text-align: center;
     padding: auto;
 }
 
+
+#caja-titulo-h1{
+    padding-top: 5px;
+    color: #F25029;
+}
+
 #caja-titulo-p{
     font-size: 30px;
     font-weight: bold;
-    color: #884107;
 }
 
 #caja-titulo p{
@@ -66,8 +71,9 @@ h3::before{
 
 #caja-contenido{
     height: 600px;
-    padding: 35px 15px 15px 15px;
-    border: 3px #8AD7F8 solid;
+    margin-bottom: 20px;
+    padding: 40px 15px 15px 15px;
+    border: 3px #6AADDC solid;
     border-radius: 18px;
     text-indent: 25px;
     text-align: justify;
