@@ -3,3 +3,6 @@ Repasar el tema de class, id, position
 
 PROBLEMAS:
 - Desborde del margen, buscar como se solventa
+
+INVESTIGACION:
+- Buscar informacion de cual licencia usar en GitHub
