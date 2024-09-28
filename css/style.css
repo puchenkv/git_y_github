@@ -79,7 +79,19 @@ h3::before{
     font-size: 26px;
 }
 
-/*
-a{
-    .
-}*/
+/* Estilos de Enlaces*/
+a:link {
+    color: #884107;
+    text-decoration: none;
+}
+
+a:visited{
+    color:gray;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: #884107;
+}
+/* Fin E. Enlaces */
